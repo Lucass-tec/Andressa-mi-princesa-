@@ -66,18 +66,55 @@ a {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-.rivalidade {
+/* --- ESTILO PARA O JOGO DE FUTEBOL --- */
+.jogo-futebol {
     text-align: center;
-    font-style: italic;
-    color: #a83d76; 
-    border: 2px dashed #ff69b4;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 25px 0;
+    margin: 40px 0;
+    padding: 20px;
+    border: 1px solid #ff69b4;
+    border-radius: 10px;
     background-color: #fff8fb;
-    font-weight: bold;
-    font-size: 1.1em;
 }
+
+.placar {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.time-corinthians {
+    color: #444; /* Preto */
+    margin-right: 15px;
+}
+
+.time-palmeiras {
+    color: #4CAF50; /* Verde */
+}
+
+.campo-gol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.bola-corinthians {
+    cursor: pointer;
+    font-size: 3em;
+    transition: transform 0.3s ease;
+}
+
+.frase-amor {
+    min-height: 40px;
+    font-style: italic;
+    font-weight: bold;
+    color: #a83d76;
+    padding: 10px;
+    border-top: 1px dashed #fce4ec;
+}
+/* ------------------------------------- */
+
 
 .poema-espanhol {
     font-family: 'Playfair Display', serif;
@@ -110,15 +147,33 @@ a {
     border-radius: 10px;
     font-size: 1.8em;
     font-weight: bold;
+    text-align: center; /* Garantir que o texto do link fique centralizado */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.1s;
     box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+    text-decoration: none; /* Manter a cor rosa escura do link */
 }
 
 .botao-proposta:hover {
     background-color: #d63384; 
     transform: translateY(-2px);
 }
+
+/* Estilo para a mensagem final após o clique (incluindo o OICH🤭😍) */
+.mensagem-final-proposta {
+    margin-top: 30px;
+    padding: 20px;
+    border: 3px solid #fce4ec;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.mensagem-final-proposta p {
+    margin: 5px 0;
+}
+
 
 .p-gato {
     text-align: center;
@@ -129,13 +184,26 @@ a {
 
 /* Player de Mídia */
 .media-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    text-align: center;
     margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
+.media-player audio {
+    width: 80%;
+    max-width: 400px;
+    margin-top: 15px;
+}
+
+.audio-label {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Seção de Vídeo */
 .conteudo-video {
     max-width: 700px;
     margin: 0 auto;
@@ -146,7 +214,17 @@ a {
 }
 
 .conteudo-video video {
+    width: 100%;
+    height: auto;
+    display: block;
     border-radius: 8px;
+}
+
+.legenda-video {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
 }
 
 
@@ -217,5 +295,9 @@ a {
         width: 90%;
         font-size: 1.5em;
         padding: 15px;
+    }
+    
+    .media-player audio {
+        width: 100%;
     }
 }
