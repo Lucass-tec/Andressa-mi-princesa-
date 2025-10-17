@@ -136,9 +136,11 @@ a {
     color: #a83d76;
 }
 
+/* Estilo Básico para TODOS os botões da proposta */
 .botao-proposta {
     display: block;
     width: 80%;
+    max-width: 400px;
     margin: 30px auto;
     padding: 18px;
     background-color: #ff69b4; 
@@ -147,19 +149,18 @@ a {
     border-radius: 10px;
     font-size: 1.8em;
     font-weight: bold;
-    text-align: center; /* Garantir que o texto do link fique centralizado */
+    text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
-    text-decoration: none; /* Manter a cor rosa escura do link */
 }
 
 .botao-proposta:hover {
     background-color: #d63384; 
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
 }
 
-/* Estilo para a mensagem final após o clique (incluindo o OICH🤭😍) */
+/* Estilo para a mensagem final (OICH🤭😍) */
 .mensagem-final-proposta {
     margin-top: 30px;
     padding: 20px;
@@ -168,6 +169,10 @@ a {
     background-color: #fff;
     text-align: center;
     font-size: 1.2em;
+    /* Efeito de fade-in para a mensagem final */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .mensagem-final-proposta p {
@@ -229,7 +234,7 @@ a {
 
 
 /* ===================================== */
-/* 3. GALERIA DE FOTOS */
+/* 3. GALERIA DE FOTOS E RESPONSIVIDADE */
 /* ===================================== */
 
 .galeria {
@@ -271,10 +276,6 @@ a {
     font-style: italic;
     border-top: 1px solid #eee;
 }
-
-/* ===================================== */
-/* 4. RESPONSIVIDADE */
-/* ===================================== */
 
 @media (max-width: 768px) {
     .hero h1 {
