@@ -75,9 +75,9 @@
                 E depois de compartilhar a minha vida com a minha Princesa... Só me resta uma pergunta:
             </p>
             
-            <a href="#" id="botao-casamento" class="botao-proposta" onclick="aceitarProposta()">
+            <button id="botao-casamento" class="botao-proposta" onclick="aceitarProposta(event)">
                 Você Aceita Ser Minha Esposa?
-            </a>
+            </button>
             
             <div id="mensagem-final-proposta" class="mensagem-final-proposta"></div>
 
@@ -99,6 +99,7 @@
     <section id="galeria-fotos" class="secao">
         <h2>Nossos Momentos Inesquecíveis ✨</h2>
         <div class="galeria">
+
             <div class="foto-card">
                 <img src="img/IMG 20251016_210932_761.webp" alt="Vocês dois em selfie no escuro">
                 <p class="legenda">Onde quer que a gente vá, a parceria é certa. Nosso lugar é ao lado! 🏠</p>
@@ -194,7 +195,11 @@
         // ===================================
         // FUNÇÃO DO BOTÃO DE CASAMENTO (Com OICH🤭😍)
         // ===================================
-        function aceitarProposta() {
+        // CORRIGIDO: Agora recebe o 'event'
+        function aceitarProposta(event) {
+            // CORREÇÃO ESSENCIAL: Previne o comportamento padrão (rolar para o topo)
+            event.preventDefault();
+
             const botao = document.getElementById('botao-casamento');
             const mensagemFinal = document.getElementById('mensagem-final-proposta');
             
@@ -205,6 +210,7 @@
             botao.onclick = null; // Impede novos cliques
 
             // 2. Exibir a mensagem emocional E A SUA FRASE OICH🤭😍
+            // A frase OICH🤭😍 SÓ aparece aqui, garantindo o seu pedido.
             mensagemFinal.innerHTML = `
                 <p style="font-size: 2em; color: #ff1493; font-weight: bold; margin-bottom: 10px;">
                     OICH🤭😍
