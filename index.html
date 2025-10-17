@@ -25,29 +25,42 @@
                 Você é a única que consegue amar um palmeirense como eu 💚 e ainda torcer pelo seu Corinthians 🖤. Mas quando a gente se encontra, essa rivalidade some, e só o que importa é o nosso time: o nosso.
             </p>
             
-            <div class="rivalidade">
-                ⚽ Corinthians 🖤 X 💚 Palmeiras ⚽<br>
-                Nosso Amor Vence Sempre! 🏆
-            </div>
+            <div class="jogo-futebol">
+                <div class="placar">
+                    <span id="placar-corinthians" class="time-corinthians">Corinthians: 0</span>
+                    <span id="placar-palmeiras" class="time-palmeiras">Palmeiras: 0</span>
+                </div>
+                
+                <p>
+                    Clique na **Bola Corinthians** para fazer um gol em mim e ganhar uma frase de amor! 👇
+                </p>
+                
+                <div id="campo-gol" class="campo-gol">
+                    <div id="bola" class="bola-corinthians">⚽</div>
+                </div>
 
+                <div id="frase-amor" class="frase-amor">
+                    Clique na bola!
+                </div>
+            </div>
+            
             <p>
-                Você é tudo que eu sonhei. Minha **"Compañera de vida"** (minha parceira de vida). A pessoa que me faz querer ser melhor a cada dia, apenas para merecer esse amor lindo que você me dá. Você é o motivo do meu sorriso, minha **"estrella polar"** (estrela polar).
+                Você é tudo que eu sonhei. Minha Compañera de vida. A pessoa que me faz querer ser melhor a cada dia, apenas para merecer esse amor lindo que você me dá. Você é o motivo do meu sorriso, minha estrella polar.
             </p>
             
             <p>
-                Eu te amo incondicionalmente, mais do que qualquer palavra possa expressar. Você compartilha comigo o amor pelos nossos bichinhos fofos... Você é meu mundo. **"Tú eres mi todo, mi amor."** (Você é meu tudo, meu amor). 🐾🐈‍⬛
+                Eu te amo incondicionalmente, mais do que qualquer palavra possa expressar. Você compartilha comigo o amor pelos nossos bichinhos fofos... Você é meu mundo. Tú eres mi todo, mi amor. 🐾🐈‍⬛
             </p>
 
             <div class="poema-espanhol">
                 <p>
-                    **Tú y Yo (Você e Eu)**<br>
+                    Tú y Yo<br>
                     Tú eres mi sol en la mañana, ☀️<br>
                     Mi luna en la noche callada. 🌙<br>
                     Contigo, cada paso es una danza,<br>
                     Mi Andressa, mi amor, mi amada. ❤️
                 </p>
             </div>
-
 
             <div class="media-player">
                 <h3>Escute com o Coração (Momento Girassol) 🌻</h3>
@@ -59,13 +72,16 @@
             </div>
 
             <p class="pergunta-final">
-                E depois de compartilhar a minha vida com a minha **"Princesa"**... Só me resta uma pergunta:
+                E depois de compartilhar a minha vida com a minha Princesa... Só me resta uma pergunta:
             </p>
             
-            <a href="#" class="botao-proposta" onclick="alert('Meu amor, essa é a única resposta que eu preciso: Sim! Aceita casar comigo? 💍'); return false;">
+            <a href="#" id="botao-casamento" class="botao-proposta" onclick="aceitarProposta()">
                 Você Aceita Ser Minha Esposa?
             </a>
-            <p class="p-gato">Miaau! 😽 Eu amo você! **"Para siempre."** (Para sempre). ❤️</p>
+            
+            <div id="mensagem-final-proposta" class="mensagem-final-proposta"></div>
+
+            <p class="p-gato">Miaau! 😽 Eu amo você! Para siempre. ❤️</p>
         </div>
     </section>
     
@@ -132,5 +148,75 @@
         </div>
     </section>
 
+    <script>
+        // ===================================
+        // JOGO DE FUTEBOL (GOLEADA DE AMOR)
+        // ===================================
+        const bola = document.getElementById('bola');
+        const fraseAmor = document.getElementById('frase-amor');
+        const placarCorinthians = document.getElementById('placar-corinthians');
+        const placarPalmeiras = document.getElementById('placar-palmeiras');
+
+        let golsCorinthians = 0;
+        let golsPalmeiras = 0;
+
+        const frases = [
+            "Você é o gol mais bonito da minha vida! 🥅",
+            "Sua vitória é a minha felicidade! Te amo!",
+            "Gol! Você é a campeã do meu coração! 🏆",
+            "Não tem placar para o tanto que eu te amo, mas esse gol é só seu!",
+            "Um gol de placa para a mulher mais incrível do mundo!",
+            "Você é mais que um gol, é a minha vida inteira!"
+        ];
+
+        bola.addEventListener('click', () => {
+            // A Andressa (Corinthians) sempre marca
+            golsCorinthians++;
+            placarCorinthians.textContent = `Corinthians: ${golsCorinthians}`;
+            
+            // Exibe a frase aleatória
+            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+            fraseAmor.textContent = fraseAleatoria;
+            
+            // Simulação de animação
+            bola.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                bola.style.transform = 'scale(1)';
+            }, 300);
+
+            // Simulação de uma resposta "palmeirense" para equilibrar a brincadeira (opcional)
+            if (golsCorinthians % 3 === 0) {
+                golsPalmeiras++;
+                placarPalmeiras.textContent = `Palmeiras: ${golsPalmeiras}`;
+            }
+        });
+
+
+        // ===================================
+        // FUNÇÃO DO BOTÃO DE CASAMENTO
+        // ===================================
+        function aceitarProposta() {
+            const botao = document.getElementById('botao-casamento');
+            const mensagemFinal = document.getElementById('mensagem-final-proposta');
+            
+            // 1. Mudar o botão
+            botao.textContent = 'SIM! 😻 Eu aceito! 💍';
+            botao.style.backgroundColor = '#4CAF50'; // Verde de confirmação
+            botao.style.boxShadow = '0 4px 10px rgba(76, 175, 80, 0.6)';
+            botao.onclick = null; // Impede novos cliques
+
+            // 2. Exibir a mensagem emocional
+            mensagemFinal.innerHTML = `
+                <p class="frase-emocional-final">
+                    <strong>EU TE AMO DEMAIS! 😍</strong>
+                    Meu coração é seu para sempre! Agora... se você tiver aceitado, 
+                    <span style="color: #ff69b4; font-weight: bold;">me manda o print AGORA, por favor!</span> 🥹❤️
+                </p>
+            `;
+            
+            // Opcional: Animação para o botão
+            botao.style.transform = 'scale(1.1)';
+        }
+    </script>
 </body>
 </html>
