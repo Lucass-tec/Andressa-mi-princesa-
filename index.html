@@ -90,14 +90,51 @@
     </section>
     
     <section id="video-momento" class="secao">
-        <h2>Nosso Vídeo Inesquecível! 🎥</h2>
-        <div class="conteudo-video">
-            <video width="100%" controls>
-                <source src="img/VID_20250627_123921_857.mp4" type="video/mp4">
-                Seu navegador não suporta a tag de vídeo.
-            </video>
-            <p class="legenda-video">Lembrando desse dia que passamos juntos. Cada segundo é especial!</p>
-        </div>
+        <h2>Nossos Vídeos Especiais! 🎥 (Loop Infinito)</h2>
+        
+        <div class="galeria-videos">
+            
+            <div class="conteudo-video">
+                <video width="100%" controls autoplay loop muted>
+                    <source src="img/VID_20250627_123921_857.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <p class="legenda-video">Lembrando desse dia que passamos juntos. Cada segundo é especial!</p>
+            </div>
+
+            <div class="conteudo-video">
+                <video width="100%" controls autoplay loop muted>
+                    <source src="img/1000031779.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <p class="legenda-video">Nossas viagens de ônibus e as caretas! 😂</p>
+            </div>
+            
+            <div class="conteudo-video">
+                <video width="100%" controls autoplay loop muted>
+                    <source src="img/1000031257.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <p class="legenda-video">Aquele seu charme que me derrete! 😉</p>
+            </div>
+            
+            <div class="conteudo-video">
+                <video width="100%" controls autoplay loop muted>
+                    <source src="img/1000031259.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <p class="legenda-video">As risadas que só a gente entende! 😂</p>
+            </div>
+            
+            <div class="conteudo-video">
+                <video width="100%" controls autoplay loop muted>
+                    <source src="img/1000032637.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <p class="legenda-video">Rolê noturno! A luz do seu celular iluminando nosso amor! ✨</p>
+            </div>
+            
+            </div>
     </section>
 
     <section id="galeria-fotos" class="secao">
@@ -105,8 +142,13 @@
         <div class="galeria">
 
             <div class="foto-card">
-                <img src="img/IMG_20251016_210932_761.webp" alt="Vocês dois em selfie no escuro">
+                <img src="img/IMG_20251016_210932_961.webp" alt="Vocês dois em selfie no escuro">
                 <p class="legenda">Onde quer que a gente vá, a parceria é certa. Nosso lugar é ao lado! 🏠</p>
+            </div>
+            
+            <div class="foto-card">
+                <img src="img/1000031265.jpg" alt="Andressa e Lucas juntos, ela com a mão no rosto">
+                <p class="legenda">O seu sorriso, a minha paz. Nosso momento no sofá. 💚</p>
             </div>
 
             <div class="foto-card">
@@ -153,17 +195,14 @@
     </section>
 
     <script>
-        // ===================================
-        // JOGO DE FUTEBOL (GOLEADA DE AMOR)
-        // ===================================
+        // ... (o código do jogo de futebol permanece o mesmo) ...
+
         const bola = document.getElementById('bola');
         const fraseAmor = document.getElementById('frase-amor');
         const placarCorinthians = document.getElementById('placar-corinthians');
         const placarPalmeiras = document.getElementById('placar-palmeiras');
-
         let golsCorinthians = 0;
         let golsPalmeiras = 0;
-
         const frases = [
             "Você é o gol mais bonito da minha vida! 🥅",
             "Sua vitória é a minha felicidade! Te amo!",
@@ -172,19 +211,15 @@
             "Um gol de placa para a mulher mais incrível do mundo!",
             "Você é mais que um gol, é a minha vida inteira!"
         ];
-
         bola.addEventListener('click', () => {
             golsCorinthians++;
             placarCorinthians.textContent = `Corinthians: ${golsCorinthians}`;
-            
             const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
             fraseAmor.textContent = fraseAleatoria;
-            
             bola.style.transform = 'scale(1.2)';
             setTimeout(() => {
                 bola.style.transform = 'scale(1)';
             }, 300);
-
             if (golsCorinthians % 3 === 0) {
                 golsPalmeiras++;
                 placarPalmeiras.textContent = `Palmeiras: ${golsPalmeiras}`;
@@ -200,7 +235,7 @@
         const btnAceite = document.getElementById('botao-casamento-aceite');
         const mensagemFinal = document.getElementById('mensagem-final-proposta');
 
-        // ETAPA 1: Esconde a pergunta e mostra o botão "SIM"
+        // ETAPA 1: Esconde a pergunta e mostra o botão "SIM! Eu Aceito!"
         function mostrarBotaoAceite(event) {
             event.preventDefault();
 
@@ -210,7 +245,7 @@
             btnAceite.style.transform = 'scale(1.1)'; // Animação
         }
 
-        // ETAPA 2: Acionada pelo clique no "SIM! Eu Aceito!". Mostra a mensagem final.
+        // ETAPA 2: Acionada pelo clique no "SIM! Eu Aceito!". Mostra a mensagem final com o OICH.
         function finalizarProposta(event) {
             event.preventDefault();
 
