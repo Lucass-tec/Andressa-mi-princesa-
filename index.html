@@ -75,11 +75,15 @@
                 E depois de compartilhar a minha vida com a minha Princesa... Só me resta uma pergunta:
             </p>
             
-            <button id="botao-casamento" class="botao-proposta" onclick="aceitarProposta(event)">
+            <button id="botao-casamento-pergunta" class="botao-proposta" onclick="mostrarBotaoAceite(event)">
                 Você Aceita Ser Minha Esposa?
             </button>
             
-            <div id="mensagem-final-proposta" class="mensagem-final-proposta"></div>
+            <button id="botao-casamento-aceite" class="botao-proposta" style="display:none; background-color: #f9a825;" onclick="finalizarProposta(event)">
+                SIM! Eu Aceito! 💍
+            </button>
+            
+            <div id="mensagem-final-proposta" class="mensagem-final-proposta" style="display:none;"></div>
 
             <p class="p-gato">Miaau! 😽 Eu amo você! Para siempre. ❤️</p>
         </div>
@@ -89,7 +93,7 @@
         <h2>Nosso Vídeo Inesquecível! 🎥</h2>
         <div class="conteudo-video">
             <video width="100%" controls>
-                <source src="img/VID_20250627_173921_857.mp4" type="video/mp4">
+                <source src="img/VID_20250627_123921_857.mp4" type="video/mp4">
                 Seu navegador não suporta a tag de vídeo.
             </video>
             <p class="legenda-video">Lembrando desse dia que passamos juntos. Cada segundo é especial!</p>
@@ -101,12 +105,12 @@
         <div class="galeria">
 
             <div class="foto-card">
-                <img src="img/IMG 20251016_210932_761.webp" alt="Vocês dois em selfie no escuro">
+                <img src="img/IMG_20251016_210932_761.webp" alt="Vocês dois em selfie no escuro">
                 <p class="legenda">Onde quer que a gente vá, a parceria é certa. Nosso lugar é ao lado! 🏠</p>
             </div>
 
             <div class="foto-card">
-                <img src="img/IMG 20250925_073034_888.webp" alt="Andressa com filtro de cachorrinho">
+                <img src="img/IMG_20250925_073034_888.webp" alt="Andressa com filtro de cachorrinho">
                 <p class="legenda">O sol da manhã, com o brilho da minha vida. ☀️</p>
             </div>
 
@@ -116,7 +120,7 @@
             </div>
 
             <div class="foto-card">
-                <img src="img/IMG 20250731_100537_645.webp" alt="Andressa em outra pose divertida">
+                <img src="img/IMG_20250731_100537_645.webp" alt="Andressa em outra pose divertida">
                 <p class="legenda">Cada dia com você é uma nova aventura. Te amo!</p>
             </div>
 
@@ -126,7 +130,7 @@
             </div>
 
             <div class="foto-card">
-                <img src="img/IMG-20250718-WA0034.jpg" alt="Foto de vocês dois no carro">
+                <img src="img/IMG_20250718_WA0034.jpg" alt="Foto de vocês dois no carro">
                 <p class="legenda">Por todas as viagens que faremos. Minha melhor companhia. 🛣️</p>
             </div>
 
@@ -141,7 +145,7 @@
             </div>
 
             <div class="foto-card">
-                <img src="img/IMG 20250624 164724 601.webp" alt="Vocês dois deitados">
+                <img src="img/IMG_20250624_164724_601.webp" alt="Vocês dois deitados">
                 <p class="legenda">Carinho e aconchego. Nosso momento. 🤍</p>
             </div>
 
@@ -170,21 +174,17 @@
         ];
 
         bola.addEventListener('click', () => {
-            // A Andressa (Corinthians) sempre marca
             golsCorinthians++;
             placarCorinthians.textContent = `Corinthians: ${golsCorinthians}`;
             
-            // Exibe a frase aleatória
             const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
             fraseAmor.textContent = fraseAleatoria;
             
-            // Simulação de animação
             bola.style.transform = 'scale(1.2)';
             setTimeout(() => {
                 bola.style.transform = 'scale(1)';
             }, 300);
 
-            // Simulação de uma resposta "palmeirense" para equilibrar a brincadeira (opcional)
             if (golsCorinthians % 3 === 0) {
                 golsPalmeiras++;
                 placarPalmeiras.textContent = `Palmeiras: ${golsPalmeiras}`;
@@ -193,37 +193,51 @@
 
 
         // ===================================
-        // FUNÇÃO DO BOTÃO DE CASAMENTO (Com OICH🤭😍)
+        // FUNÇÕES DO BOTÃO DE CASAMENTO (3 ETAPAS)
         // ===================================
-        // CORRIGIDO: Agora recebe o 'event'
-        function aceitarProposta(event) {
-            // CORREÇÃO ESSENCIAL: Previne o comportamento padrão (rolar para o topo)
+        
+        const btnPergunta = document.getElementById('botao-casamento-pergunta');
+        const btnAceite = document.getElementById('botao-casamento-aceite');
+        const mensagemFinal = document.getElementById('mensagem-final-proposta');
+
+        // ETAPA 1: Esconde a pergunta e mostra o botão "SIM"
+        function mostrarBotaoAceite(event) {
             event.preventDefault();
 
-            const botao = document.getElementById('botao-casamento');
-            const mensagemFinal = document.getElementById('mensagem-final-proposta');
+            btnPergunta.style.display = 'none'; // Esconde a pergunta original
             
-            // 1. Mudar o botão
-            botao.textContent = 'SIM! 😻 Eu aceito! 💍';
-            botao.style.backgroundColor = '#4CAF50'; // Verde de confirmação
-            botao.style.boxShadow = '0 4px 10px rgba(76, 175, 80, 0.6)';
-            botao.onclick = null; // Impede novos cliques
+            btnAceite.style.display = 'block'; // Mostra o botão SIM!
+            btnAceite.style.transform = 'scale(1.1)'; // Animação
+        }
 
-            // 2. Exibir a mensagem emocional E A SUA FRASE OICH🤭😍
-            // A frase OICH🤭😍 SÓ aparece aqui, garantindo o seu pedido.
+        // ETAPA 2: Acionada pelo clique no "SIM! Eu Aceito!". Mostra a mensagem final.
+        function finalizarProposta(event) {
+            event.preventDefault();
+
+            btnAceite.style.backgroundColor = '#4CAF50'; // Fica verde
+            btnAceite.style.boxShadow = '0 4px 10px rgba(76, 175, 80, 0.6)';
+            btnAceite.onclick = null; // Impede novos cliques
+            
+            // Exibir a mensagem final com o OICH🤭😍
+            mensagemFinal.style.display = 'block';
             mensagemFinal.innerHTML = `
                 <p style="font-size: 2em; color: #ff1493; font-weight: bold; margin-bottom: 10px;">
                     OICH🤭😍
                 </p>
                 <p class="frase-emocional-final">
-                    <strong>EU TE AMO DEMAIS! 😍</strong>
-                    Meu coração é seu para sempre! Agora... se você tiver aceitado, 
+                    <strong>EU TE AMO DEMAIS!</strong>
+                    Você me faz o homem mais feliz do mundo! Meu coração é seu para sempre!
+                    <br><br>
+                    Agora... se você tiver aceitado, 
                     <span style="color: #ff69b4; font-weight: bold;">me manda o print AGORA, por favor!</span> 🥹❤️
                 </p>
             `;
             
-            // Opcional: Animação para o botão
-            botao.style.transform = 'scale(1.1)';
+            // Opcional: Animação para a mensagem
+            setTimeout(() => {
+                mensagemFinal.style.opacity = '1';
+                mensagemFinal.style.transform = 'translateY(0)';
+            }, 50);
         }
     </script>
 </body>
