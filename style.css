@@ -209,6 +209,16 @@ a {
 }
 
 /* Seção de Vídeo */
+.galeria-videos {
+    display: grid;
+    /* Para telas maiores, coloca 2 vídeos por linha */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto; 
+    padding-top: 20px;
+}
+
 .conteudo-video {
     max-width: 700px;
     margin: 0 auto;
@@ -291,6 +301,11 @@ a {
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); 
         gap: 20px;
     }
+    
+    .galeria-videos {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); 
+        gap: 20px;
+    }
 
     .botao-proposta {
         width: 90%;
@@ -301,4 +316,4 @@ a {
     .media-player audio {
         width: 100%;
     }
-}
+                                                   }
