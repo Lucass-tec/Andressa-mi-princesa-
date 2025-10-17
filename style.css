@@ -177,6 +177,27 @@ a {
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
+/* Estilo para a mensagem fofa em espanhol (NOVO) */
+#mensagem-espanhol {
+    margin-top: 30px;
+    padding: 25px;
+    border: 3px solid #ff9800; /* Borda laranja para combinar com o botão */
+    border-radius: 12px;
+    background-color: #fff3e0; /* Fundo mais claro para dar destaque */
+    text-align: center;
+    font-size: 1.3em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #ff9800;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+    
+    /* Reutiliza o estilo de transição do outro bloco */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+/* ------------------------------------- */
+
 .mensagem-final-proposta p {
     margin: 5px 0;
 }
